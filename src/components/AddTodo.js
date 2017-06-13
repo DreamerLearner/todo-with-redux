@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { onSubmitCall } from '../actions/index'
+import { onSubmitCall } from '../actions'
 import { connect } from 'react-redux';
 
 class AddTodo extends PureComponent{

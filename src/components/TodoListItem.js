@@ -1,12 +1,8 @@
 import React, { PureComponent } from 'react';
-import { onToggle } from '../actions/index'
+import { onToggle, onDelete } from '../actions'
 import { connect } from 'react-redux';
 
 class TodoListItem extends PureComponent{
-
-	constructor(props){
-		super(props);
-	}
 
 	render(){
 		
@@ -16,17 +12,14 @@ class TodoListItem extends PureComponent{
 		return(
 			<li className={textClass}>
 				<span onClick={() => this.props.onToggle(id)}>{task}</span>
-				<button>Delete task </button>
+				<button onClick={()=> this.props.onDelete(id)}>Delete task </button>
 			</li>
 		);
 	}
 
 }
 
-// export default TodoListItem;
-
-
 const selected = (state) => {
 	return { todos : state.TodoList };
 }
-export default connect(selected,{onToggle})(TodoListItem);
+export default connect(selected,{onToggle, onDelete})(TodoListItem);
